@@ -1,9 +1,13 @@
 import './App.css';
 import Newsroom from './Newsroom';
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <Newsroom/>
+    <BrowserRouter>
+      <Newsroom/>
+    </BrowserRouter>
+
   );
 }
 

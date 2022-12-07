@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate  } from "react-router-dom";
 import News from "./News";
 import NewsArticles from "./NewsArticles"
 function Newsroom() {
@@ -8,6 +8,7 @@ function Newsroom() {
     const [search, setSearch] = useState('example')
     const [tempSearch, setTempSearch] = useState('')
     const [news, setNews] = useState();
+    const navigate = useNavigate();
 
     const handleInputChange = (event) => {
         setTempSearch(event.target.value);
@@ -15,6 +16,7 @@ function Newsroom() {
 
     const updateSearch = () => {
         setSearch(tempSearch);
+        navigate("/");
         console.log(search)
     }
     useEffect(() => {
@@ -35,7 +37,6 @@ function Newsroom() {
     };
     return (
         <div>
-            <BrowserRouter>
                 <div className="container pt-5">
                     <div className="row">
                         <div className="col-12">
@@ -57,7 +58,6 @@ function Newsroom() {
                 </div>
 
 
-            </BrowserRouter>
         </div>
 
     );
