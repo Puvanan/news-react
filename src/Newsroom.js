@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useNavigate  } from "react-router-dom";
+import { Routes, Route, useNavigate, NavLink } from "react-router-dom";
 import News from "./News";
 import NewsArticles from "./NewsArticles"
 function Newsroom() {
@@ -16,6 +16,11 @@ function Newsroom() {
 
     const updateSearch = () => {
         setSearch(tempSearch);
+        navigate("/");
+        console.log(search)
+    }
+    const updateFilterSearch = (value) => {
+        setSearch(value);
         navigate("/");
         console.log(search)
     }
@@ -40,7 +45,7 @@ function Newsroom() {
                 <div className="container pt-5">
                     <div className="row">
                         <div className="col-12">
-                            <h1 className="text-center font-alt">Newsroom</h1>
+                        <NavLink to={`/`} className="text-decoration-none"> <h1 className="text-center font-alt  text-dark">Newsroom</h1></NavLink>                           
                         </div>
                     </div>
                     <div className="row justify-content-center mt-3">
@@ -50,6 +55,13 @@ function Newsroom() {
                         <div className="col-1">
                         <button type="button" onClick={()=>updateSearch()} className="btn btn-dark">Search</button>
                         </div>
+                    </div>
+                    <div className="row justify-content-center mt-3" style={{width:"500px", margin:"0 auto"}}>
+                        <div className="col-3"> <span style={{width:"100px"}} className="badge rounded-pill border text-bg-light fs-6" onClick={()=>updateFilterSearch('world')}>World</span></div>
+                        <div className="col-3"> <span style={{width:"100px"}} className="badge rounded-pill border text-bg-light fs-6" onClick={()=>updateFilterSearch('covid')}>Covid-19</span></div>
+                        <div className="col-3"> <span style={{width:"100px"}} className="badge rounded-pill border text-bg-light fs-6" onClick={()=>updateFilterSearch('Malaysia')}>Local</span></div>
+                        <div className="col-3"> <span style={{width:"100px"}} className="badge rounded-pill border text-bg-light fs-6" onClick={()=>updateFilterSearch('sports')}>Sports</span></div>
+                        
                     </div>
                     <Routes>
                         <Route path="/" element={<NewsArticles newsArticles={news} />} />
