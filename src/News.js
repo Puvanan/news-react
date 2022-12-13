@@ -4,7 +4,6 @@ const dateFormatting = (date) => {
     var year = date.substring(4,0)
     var month = date.substring(5,7)
     var day = date.substring(8,10)
-    console.log(month);
     return day+'/'+month+'/'+year
 }
 function News(props) {

@@ -42,34 +42,32 @@ function Newsroom() {
     };
     return (
         <div>
-                <div className="container pt-5">
-                    <div className="row">
-                        <div className="col-12">
-                        <NavLink to={`/`} className="text-decoration-none"> <h1 className="text-center font-alt  text-dark">Newsroom</h1></NavLink>                           
-                        </div>
+            <div className="container pt-5">
+                <div className="row">
+                    <div className="col-12">
+                    <NavLink to={`/`} className="text-decoration-none"> <h1 className="text-center font-alt  text-dark">Newsroom</h1></NavLink>                           
                     </div>
-                    <div className="row justify-content-center mt-3">
-                        <div className="col-5">
-                            <input type="text" value={tempSearch} onChange={handleInputChange} className="form-control" id="searchText" placeholder="Search..."></input>
-                        </div>
-                        <div className="col-1">
-                        <button type="button" onClick={()=>updateSearch()} className="btn btn-dark">Search</button>
-                        </div>
-                    </div>
-                    <div className="row justify-content-center mt-3" style={{width:"500px", margin:"0 auto"}}>
-                        <div className="col-3"> <span style={{width:"100px"}} className="badge rounded-pill border text-bg-light fs-6" onClick={()=>updateFilterSearch('world')}>World</span></div>
-                        <div className="col-3"> <span style={{width:"100px"}} className="badge rounded-pill border text-bg-light fs-6" onClick={()=>updateFilterSearch('covid')}>Covid-19</span></div>
-                        <div className="col-3"> <span style={{width:"100px"}} className="badge rounded-pill border text-bg-light fs-6" onClick={()=>updateFilterSearch('Malaysia')}>Local</span></div>
-                        <div className="col-3"> <span style={{width:"100px"}} className="badge rounded-pill border text-bg-light fs-6" onClick={()=>updateFilterSearch('sports')}>Sports</span></div>
-                        
-                    </div>
-                    <Routes>
-                        <Route path="/" element={<NewsArticles newsArticles={news} />} />
-                        <Route path="/News/:NewsTitle" element={<News newsArticles={news} />} />
-                    </Routes>
                 </div>
-
-
+                <div className="row justify-content-center mt-3">
+                    <div className="col-5">
+                        <input type="text" value={tempSearch} onChange={handleInputChange} className="form-control" id="searchText" placeholder="Search..."></input>
+                    </div>
+                    <div className="col-1">
+                    <button type="button" onClick={()=>updateSearch()} className="btn btn-dark">Search</button>
+                    </div>
+                </div>
+                <div className="row justify-content-center mt-3" style={{width:"500px", margin:"0 auto"}}>
+                    <div className="col-3"> <span style={{width:"100px"}} className="badge rounded-pill border text-bg-light fs-6" onClick={()=>updateFilterSearch('world')}>World</span></div>
+                    <div className="col-3"> <span style={{width:"100px"}} className="badge rounded-pill border text-bg-light fs-6" onClick={()=>updateFilterSearch('covid')}>Covid-19</span></div>
+                    <div className="col-3"> <span style={{width:"100px"}} className="badge rounded-pill border text-bg-light fs-6" onClick={()=>updateFilterSearch('Malaysia')}>Local</span></div>
+                    <div className="col-3"> <span style={{width:"100px"}} className="badge rounded-pill border text-bg-light fs-6" onClick={()=>updateFilterSearch('sports')}>Sports</span></div>
+                    
+                </div>
+                <Routes>
+                    <Route path="/" element={<NewsArticles newsArticles={news} />} />
+                    <Route path="/News/:NewsTitle" element={<News newsArticles={news} />} />
+                </Routes>
+            </div>
         </div>
 
     );
